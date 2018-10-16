@@ -37,6 +37,7 @@ public class Principal extends AppCompatActivity {
                  Intent in= new Intent(Principal.this,ListActivity.class);
                  nombre.setText(" ");
                  apellido.setText(" ");
+                 telefono.setText(" ");
              }
          });
 
