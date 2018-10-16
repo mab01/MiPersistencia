@@ -3,6 +3,7 @@ package com.example.clara.mipersistencia.aplication;
 import android.app.Application;
 import android.database.Cursor;
 
+import com.example.clara.mipersistencia.Cliente;
 import com.example.clara.mipersistencia.adapter.DBAdapter;
 
 import java.util.ArrayList;
@@ -46,16 +47,18 @@ import java.util.ArrayList;
         }
 
 
-        public ArrayList<String> nombresClientes(){
+        public ArrayList<Cliente> nombresClientes(){
 
-            ArrayList<String> lista= new ArrayList<String>();
+            ArrayList<Cliente> lista= new ArrayList<Cliente>();
             Cursor c= dbAdapter.getDatosCliente();
+            Cliente c1;
 
             if(c.moveToFirst()){
 
                 do{
 
-                    lista.add(c.getString(1));
+                    c1=new Cliente(c.getString(1), c.getString(2), c.getString(3));
+                    lista.add(c1);
 
                 } while (c.moveToNext());
             }
