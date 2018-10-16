@@ -20,4 +20,6 @@ public class ListActivity extends AppCompatActivity {
 
         }
     }
+
+    private class
 }
