@@ -23,9 +23,13 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        listView= (ListView) findViewById(R.id.tvlista);
+        listView= (ListView) findViewById(R.id.miLista);
 
         lista= ((BaseAplication)getApplication()).nombresClientes();
+
+        AdapterLista ld= new AdapterLista();
+        listView.setAdapter(ld);
+
     }
 
     private class AdapterLista extends ArrayAdapter<Cliente>{
@@ -42,22 +46,20 @@ public class ListActivity extends AppCompatActivity {
             if (itemView == null) {
                 itemView= getLayoutInflater().inflate(R.layout.items, parent,false);
             }
-            ClipData.Item itemActual= lista.get(position);
+            Cliente itemActual= lista.get(position);
 
             TextView nombres= (TextView) itemView.findViewById(R.id.nombre);
-            nombres.setText(itemActual.getText());
+            nombres.setText(itemActual.getNombre());
             TextView apellidos= (TextView) itemView.findViewById(R.id.apellido);
-            apellidos.setText(itemActual.getText());
+            apellidos.setText(itemActual.getApellido());
+            TextView telefonos= (TextView) itemView.findViewById(R.id.telefono);
+            apellidos.setText(itemActual.getApellido());
 
-
+            return itemView;
 
             }
 
 
-
-
-
-
         }
-    }
+
 }

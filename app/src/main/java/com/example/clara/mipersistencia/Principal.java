@@ -44,6 +44,7 @@ public class Principal extends AppCompatActivity {
 
 
 
+
     public void onClick(View view) {
 
         Intent miIntent= new Intent(Principal.this, ListActivity.class);
